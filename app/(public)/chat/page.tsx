@@ -5,7 +5,7 @@ import { Send, Loader2, Bot, UserCircle, Globe, Sparkles, Keyboard } from 'lucid
 import type { ChatMessage } from '@/types';
 import { useLanguage } from '@/components/layout/LanguageProvider';
 import { useTranslation } from 'react-i18next';
-import HindiKeyboard from '@/components/ui/HindiKeyboard';
+import { IndicKeyboard } from '@/components/ui/IndicKeyboard';
 
 const STARTER_QUESTIONS = [
   { key: 'starter1', icon: '🎯' },
@@ -266,7 +266,7 @@ export default function ChatPage() {
                 ? 'bg-indigo-600 text-white border-indigo-600'
                 : 'border-gray-300 text-gray-400 hover:border-indigo-400 hover:text-indigo-600'
             }`}
-            title={t('keyboard.openHindi', { defaultValue: 'Hindi Keyboard' })}
+            title={t('keyboard.openIndic', { defaultValue: 'Open Indic keyboard' })}
           >
             <Keyboard className="w-4 h-4" />
           </button>
@@ -292,12 +292,13 @@ export default function ChatPage() {
         </form>
       </div>
 
-      {/* Hindi Keyboard (floating) */}
-      <HindiKeyboard
+      {/* Indic Keyboard (floating) */}
+      <IndicKeyboard
         isOpen={kbOpen}
         onKeyPress={handleKbKey}
         onBackspace={handleKbBackspace}
         onClose={() => setKbOpen(false)}
+        defaultLang={language === 'hi' ? 'hi' : 'hi'}
       />
     </div>
   );

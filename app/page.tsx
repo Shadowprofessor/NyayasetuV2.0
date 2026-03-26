@@ -126,13 +126,13 @@ export default function LandingPage() {
               </p>
               <ul className="space-y-4 pt-4">
                 <li className="flex items-center gap-3 text-lg text-gray-700 font-medium">
-                  <CheckCircle2 className="w-6 h-6 text-indigo-500 flex-shrink-0" /> Filter by demographics instantly
+                  <CheckCircle2 className="w-6 h-6 text-indigo-500 flex-shrink-0" /> {t('landing.feat1Bullet1', 'Filter by demographics instantly')}
                 </li>
                 <li className="flex items-center gap-3 text-lg text-gray-700 font-medium">
-                  <CheckCircle2 className="w-6 h-6 text-indigo-500 flex-shrink-0" /> Detailed eligibility criteria
+                  <CheckCircle2 className="w-6 h-6 text-indigo-500 flex-shrink-0" /> {t('landing.feat1Bullet2', 'Detailed eligibility criteria')}
                 </li>
                 <li className="flex items-center gap-3 text-lg text-gray-700 font-medium">
-                  <CheckCircle2 className="w-6 h-6 text-indigo-500 flex-shrink-0" /> Direct application guides
+                  <CheckCircle2 className="w-6 h-6 text-indigo-500 flex-shrink-0" /> {t('landing.feat1Bullet3', 'Direct application guides')}
                 </li>
               </ul>
             </div>
@@ -161,13 +161,13 @@ export default function LandingPage() {
               </p>
               <ul className="space-y-4 pt-4">
                 <li className="flex items-center gap-3 text-lg text-gray-700 font-medium">
-                  <CheckCircle2 className="w-6 h-6 text-rose-500 flex-shrink-0" /> OTP Verified Submissions
+                  <CheckCircle2 className="w-6 h-6 text-rose-500 flex-shrink-0" /> {t('landing.feat2Bullet1', 'OTP Verified Submissions')}
                 </li>
                 <li className="flex items-center gap-3 text-lg text-gray-700 font-medium">
-                  <CheckCircle2 className="w-6 h-6 text-rose-500 flex-shrink-0" /> Live SLA Countdown Timers
+                  <CheckCircle2 className="w-6 h-6 text-rose-500 flex-shrink-0" /> {t('landing.feat2Bullet2', 'Live SLA Countdown Timers')}
                 </li>
                 <li className="flex items-center gap-3 text-lg text-gray-700 font-medium">
-                  <CheckCircle2 className="w-6 h-6 text-rose-500 flex-shrink-0" /> Auto-Escalation to Supervisors
+                  <CheckCircle2 className="w-6 h-6 text-rose-500 flex-shrink-0" /> {t('landing.feat2Bullet3', 'Auto-Escalation to Supervisors')}
                 </li>
               </ul>
             </div>
@@ -204,13 +204,13 @@ export default function LandingPage() {
               </p>
               <ul className="space-y-4 pt-4">
                 <li className="flex items-center gap-3 text-lg text-gray-700 font-medium">
-                  <CheckCircle2 className="w-6 h-6 text-purple-500 flex-shrink-0" /> English & Hindi Support
+                  <CheckCircle2 className="w-6 h-6 text-purple-500 flex-shrink-0" /> {t('landing.feat3Bullet1', 'English & Hindi Support')}
                 </li>
                 <li className="flex items-center gap-3 text-lg text-gray-700 font-medium">
-                  <CheckCircle2 className="w-6 h-6 text-purple-500 flex-shrink-0" /> Always online 24/7
+                  <CheckCircle2 className="w-6 h-6 text-purple-500 flex-shrink-0" /> {t('landing.feat3Bullet2', 'Always online 24/7')}
                 </li>
                 <li className="flex items-center gap-3 text-lg text-gray-700 font-medium">
-                  <CheckCircle2 className="w-6 h-6 text-purple-500 flex-shrink-0" /> Easy starter questions
+                  <CheckCircle2 className="w-6 h-6 text-purple-500 flex-shrink-0" /> {t('landing.feat3Bullet3', 'Easy starter questions')}
                 </li>
               </ul>
             </div>

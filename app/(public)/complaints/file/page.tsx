@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 import PhoneVerifyFlow from '@/components/complaints/PhoneVerifyFlow';
 import CategorySelector from '@/components/complaints/CategorySelector';
-import HindiKeyboard from '@/components/ui/HindiKeyboard';
+import { IndicKeyboard } from '@/components/ui/IndicKeyboard';
 import { ComplaintCategory } from '@/types';
 import type { ClassifyComplaintResult } from '@/types';
 import { classifyComplaint } from '@/lib/classifier';
@@ -338,9 +338,9 @@ export default function FileComplaintPage() {
                       ? 'bg-indigo-600 text-white border-indigo-600'
                       : 'border-gray-300 text-gray-500 hover:border-indigo-400 hover:text-indigo-600'
                   }`}
-                  title={t('keyboard.openHindi', { defaultValue: 'Open Hindi keyboard' })}
+                  title={t('keyboard.openIndic', { defaultValue: 'Open Indian language keyboard' })}
                 >
-                  <Keyboard className="w-3.5 h-3.5" /> हिं
+                  <Keyboard className="w-3.5 h-3.5" /> अ/A
                 </button>
               </div>
               <input
@@ -384,9 +384,9 @@ export default function FileComplaintPage() {
                       ? 'bg-indigo-600 text-white border-indigo-600'
                       : 'border-gray-300 text-gray-500 hover:border-indigo-400 hover:text-indigo-600'
                   }`}
-                  title={t('keyboard.openHindi', { defaultValue: 'Open Hindi keyboard' })}
+                  title={t('keyboard.openIndic', { defaultValue: 'Open Indian language keyboard' })}
                 >
-                  <Keyboard className="w-3.5 h-3.5" /> हिं
+                  <Keyboard className="w-3.5 h-3.5" /> अ/A
                 </button>
               </div>
               <textarea
@@ -651,8 +651,8 @@ export default function FileComplaintPage() {
         )}
       </div>
 
-      {/* Hindi Keyboard (floating) */}
-      <HindiKeyboard
+      {/* Indic Keyboard (floating) */}
+      <IndicKeyboard
         isOpen={kbOpen && step === 2}
         onKeyPress={handleKbKey}
         onBackspace={handleKbBackspace}
