@@ -32,37 +32,16 @@ const STATUS_COLORS: Record<string, string> = {
   transferred: 'bg-purple-100 text-purple-700',
 };
 
-const STATUS_LABELS: Record<string, string> = {
-  submitted: 'Submitted',
-  verified: 'Verified',
-  assigned: 'Assigned',
-  in_progress: 'In Progress',
-  resolved: 'Resolved',
-  closed: 'Closed',
-  escalated: 'Escalated',
-  reopened: 'Reopened',
-  transferred: 'Transferred',
-};
-
 const URGENCY_COLORS: Record<string, string> = {
   low: 'bg-green-100 text-green-700',
   medium: 'bg-yellow-100 text-yellow-700',
   high: 'bg-red-100 text-red-700',
 };
 
-const CATEGORY_LABELS: Record<string, string> = {
-  garbage_collection: 'Garbage Collection',
-  water_leakage: 'Water Leakage',
-  sewer_blockage: 'Sewer Blockage',
-  drain_overflow: 'Drain Overflow',
-  streetlight: 'Streetlight',
-  pothole: 'Pothole',
-  illegal_dumping: 'Illegal Dumping',
-  mosquito_sanitation: 'Mosquito / Sanitation',
-  stray_animal: 'Stray Animal',
-  park_maintenance: 'Park Maintenance',
-  encroachment: 'Encroachment',
-};
+// Labels are now handled by i18n
+const STATUS_KEYS = [
+  'submitted', 'verified', 'assigned', 'in_progress', 'resolved', 'closed', 'escalated', 'reopened', 'transferred'
+];
 
 export default function TrackDetailPage() {
   const { t } = useTranslation();
@@ -165,10 +144,10 @@ export default function TrackDetailPage() {
             </div>
             <div className="flex items-center gap-2 flex-wrap">
               <span className={`px-3 py-1 rounded-full text-xs font-semibold ${STATUS_COLORS[complaint.status]}`}>
-                {t(`complaints.status.${complaint.status}`, { defaultValue: STATUS_LABELS[complaint.status] || complaint.status })}
+                {t(`status.${complaint.status}`, { defaultValue: complaint.status })}
               </span>
               <span className={`px-3 py-1 rounded-full text-xs font-semibold ${URGENCY_COLORS[complaint.urgency]}`}>
-                {complaint.urgency.toUpperCase()}
+                {t(`generic.${complaint.urgency}`, { defaultValue: complaint.urgency }).toUpperCase()}
               </span>
             </div>
           </div>
@@ -183,13 +162,13 @@ export default function TrackDetailPage() {
                 <Tag className="w-4 h-4 text-gray-400" />
                 <span className="text-gray-500 w-24">{t('complaints.category', { defaultValue: 'Category' })}</span>
                 <span className="text-gray-900 font-medium">
-                  {t(`filters.${complaint.category}`, { defaultValue: CATEGORY_LABELS[complaint.category] || complaint.category })}
+                  {t(`categories.${complaint.category}`, { defaultValue: complaint.category })}
                 </span>
               </div>
               <div className="flex items-center gap-3 text-sm">
                 <Building2 className="w-4 h-4 text-gray-400" />
                 <span className="text-gray-500 w-24">{t('complaints.department', { defaultValue: 'Department' })}</span>
-                <span className="text-gray-900">{departmentName || complaint.department_id}</span>
+                <span className="text-gray-900">                  {departmentName || t(`departments.${complaint.department_id}`, { defaultValue: complaint.department_id })}</span>
               </div>
               <div className="flex items-center gap-3 text-sm">
                 <MapPin className="w-4 h-4 text-gray-400" />

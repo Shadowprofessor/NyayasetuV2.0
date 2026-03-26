@@ -190,7 +190,7 @@ export function IndicKeyboard({
                        border border-gray-200 shadow-sm transition-all active:scale-95 flex items-center justify-center
                        focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
             >
-              Space
+              {t('keyboard.space', { defaultValue: 'Space' })}
             </button>
           </div>
         </div>

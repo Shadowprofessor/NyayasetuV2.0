@@ -279,7 +279,8 @@ export default function ChatPage() {
             placeholder={t('chat.placeholder')}
             disabled={streaming}
             className="flex-1 px-4 py-2.5 rounded-xl border border-gray-300 text-sm outline-none
-              focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 disabled:opacity-50 transition-all"
+              focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 disabled:opacity-50 
+              transition-all text-gray-900 bg-white"
           />
           <button
             type="submit"

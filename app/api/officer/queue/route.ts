@@ -3,6 +3,8 @@ import { supabaseAdmin } from '@/lib/db';
 import { requireAuth } from '@/lib/middleware';
 import { UserRole } from '@/types';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: NextRequest) {
   const authResult = await requireAuth(request, [UserRole.OFFICER, UserRole.SUPERVISOR]);
   if (authResult instanceof NextResponse) return authResult;

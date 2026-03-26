@@ -32,52 +32,8 @@ const STEP_LABELS = [
   { step: 4, label: 'Success', icon: CheckCircle },
 ];
 
-const CATEGORY_LABELS: Record<string, string> = {
-  garbage_collection: 'Garbage Collection',
-  water_leakage: 'Water Leakage',
-  sewer_blockage: 'Sewer Blockage',
-  drain_overflow: 'Drain Overflow',
-  streetlight: 'Streetlight',
-  pothole: 'Pothole',
-  illegal_dumping: 'Illegal Dumping',
-  mosquito_sanitation: 'Mosquito / Sanitation',
-  stray_animal: 'Stray Animal',
-  park_maintenance: 'Park Maintenance',
-  encroachment: 'Encroachment',
-};
-
-const DEPARTMENT_NAMES: Record<string, string> = {
-  dept_001: 'Sanitation & Solid Waste',
-  dept_002: 'Water & Sewerage',
-  dept_003: 'Electrical & Street Lighting',
-  dept_004: 'Roads & Infrastructure',
-  dept_005: 'Parks & Environment',
-  dept_006: 'Animal Control',
-  dept_007: 'Anti-Encroachment',
-};
-
-const DELHI_WARDS = [
-  'Narela Zone (Ward 1-10)',
-  'Civil Lines Zone (Ward 11-20)',
-  'Rohini Zone (Ward 21-30)',
-  'Shalimar Bagh (Ward 31-40)',
-  'Keshav Puram (Ward 41-50)',
-  'Karol Bagh (Ward 51-60)',
-  'Sadar Paharganj (Ward 61-70)',
-  'City-SP Zone (Ward 71-80)',
-  'South Zone (Ward 81-90)',
-  'Central Zone (Ward 91-100)',
-  'West Zone (Ward 101-110)',
-  'Najafgarh Zone (Ward 111-120)',
-  'Dwarka (Ward 121-130)',
-  'Shahdara South (Ward 131-140)',
-  'Shahdara North (Ward 141-150)',
-  'Patparganj (Ward 151-160)',
-  'Mayur Vihar (Ward 161-170)',
-  'Okhla (Ward 171-180)',
-  'Mehrauli (Ward 181-190)',
-  'Vasant Kunj (Ward 191-200)',
-];
+// Wards are now fetched from i18n
+const WARD_KEYS = Array.from({ length: 20 }, (_, i) => (i + 1).toString());
 
 export default function FileComplaintPage() {
   const { t } = useTranslation();
@@ -171,12 +127,12 @@ export default function FileComplaintPage() {
   // ---- Step 2 validation ----
   const validateForm = useCallback((): boolean => {
     const errors: Record<string, string> = {};
-    if (!name.trim()) errors.name = 'Name is required.';
-    if (!title.trim()) errors.title = 'Complaint title is required.';
-    if (!category) errors.category = 'Please select a category.';
-    if (!description.trim()) errors.description = 'Description is required.';
-    if (description.trim().length < 30) errors.description = 'Description must be at least 30 characters.';
-    if (!address.trim()) errors.address = 'Address is required.';
+    if (!name.trim()) errors.name = t('complaint.nameRequired', { defaultValue: 'Name is required.' });
+    if (!title.trim()) errors.title = t('complaint.titleRequired', { defaultValue: 'Complaint title is required.' });
+    if (!category) errors.category = t('complaint.categoryRequired', { defaultValue: 'Please select a category.' });
+    if (!description.trim()) errors.description = t('complaint.descriptionRequired', { defaultValue: 'Description is required.' });
+    if (description.trim().length < 30) errors.description = t('complaint.descriptionMin', { defaultValue: 'Description must be at least 30 characters.' });
+    if (!address.trim()) errors.address = t('complaint.addressRequired', { defaultValue: 'Address is required.' });
     setFormErrors(errors);
     return Object.keys(errors).length === 0;
   }, [name, title, category, description, address]);
@@ -450,9 +406,9 @@ export default function FileComplaintPage() {
                   className="w-full px-4 py-2.5 rounded-lg border border-gray-300 outline-none
                     focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all text-gray-900 bg-white"
                 >
-                  <option value="" disabled>Select a Ward / Zone</option>
-                  {DELHI_WARDS.map((w) => (
-                    <option key={w} value={w}>{w}</option>
+                  <option value="" disabled>{t('complaint.selectWard', { defaultValue: 'Select a Ward / Zone' })}</option>
+                  {WARD_KEYS.map((k) => (
+                    <option key={k} value={t(`wards.${k}`)}>{t(`wards.${k}`)}</option>
                   ))}
                 </select>
               </div>
@@ -500,7 +456,7 @@ export default function FileComplaintPage() {
                 <div className="grid grid-cols-3 gap-2 text-sm border-b border-gray-100 pb-3">
                   <span className="text-gray-500">{t('complaints.category', { defaultValue: 'Category' })}</span>
                   <span className="col-span-2 text-gray-900">
-                    {category ? t(`filters.${category}`, { defaultValue: CATEGORY_LABELS[category] || category }) : ''}
+                    {category ? t(`categories.${category}`, { defaultValue: category }) : ''}
                   </span>
                 </div>
                 <div className="grid grid-cols-3 gap-2 text-sm border-b border-gray-100 pb-3">
@@ -534,13 +490,13 @@ export default function FileComplaintPage() {
                   <div className="flex justify-between">
                     <span className="text-indigo-600">{t('complaints.predictedCategory', { defaultValue: 'Predicted Category' })}</span>
                     <span className="font-medium text-indigo-900">
-                      {t(`filters.${classification.category}`, { defaultValue: CATEGORY_LABELS[classification.category] || classification.category })}
+                      {t(`categories.${classification.category}`, { defaultValue: classification.category })}
                     </span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-indigo-600">{t('complaints.department', { defaultValue: 'Department' })}</span>
                     <span className="font-medium text-indigo-900">
-                      {DEPARTMENT_NAMES[classification.department_id] || classification.department_id}
+                      {t(`departments.${classification.department_id}`, { defaultValue: classification.department_id })}
                     </span>
                   </div>
                   <div className="flex justify-between">

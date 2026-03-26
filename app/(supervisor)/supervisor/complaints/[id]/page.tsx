@@ -315,7 +315,7 @@ export default function SupervisorComplaintDetailPage() {
               <select
                 value={newStatus}
                 onChange={(e) => setNewStatus(e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-gray-300 text-sm outline-none focus:border-indigo-500"
+                className="w-full px-3 py-2 rounded-lg border border-gray-300 text-sm text-gray-900 bg-white outline-none focus:border-indigo-500"
               >
                 <option value="">Select new status...</option>
                 {allowedTransitions.map((s) => (
@@ -327,14 +327,14 @@ export default function SupervisorComplaintDetailPage() {
                 onChange={(e) => setRemarks(e.target.value)}
                 placeholder="Internal remarks (not visible to citizen)..."
                 rows={2}
-                className="w-full px-3 py-2 rounded-lg border border-gray-300 text-sm outline-none focus:border-indigo-500 resize-none"
+                className="w-full px-3 py-2 rounded-lg border border-gray-300 text-sm text-gray-900 bg-white outline-none focus:border-indigo-500 resize-none"
               />
               <textarea
                 value={publicNote}
                 onChange={(e) => setPublicNote(e.target.value)}
                 placeholder="Public note (visible to citizen)..."
                 rows={2}
-                className="w-full px-3 py-2 rounded-lg border border-gray-300 text-sm outline-none focus:border-indigo-500 resize-none"
+                className="w-full px-3 py-2 rounded-lg border border-gray-300 text-sm text-gray-900 bg-white outline-none focus:border-indigo-500 resize-none"
               />
               {statusMsg && <p className="text-xs text-indigo-600">{statusMsg}</p>}
               <button
@@ -387,7 +387,7 @@ export default function SupervisorComplaintDetailPage() {
             <select
               value={transferDept}
               onChange={(e) => setTransferDept(e.target.value)}
-              className="w-full px-3 py-2 rounded-lg border border-gray-300 text-sm outline-none focus:border-indigo-500"
+              className="w-full px-3 py-2 rounded-lg border border-gray-300 text-sm text-gray-900 bg-white outline-none focus:border-indigo-500"
             >
               <option value="">Select target department...</option>
               {DEPARTMENT_OPTIONS.filter((d) => d.id !== complaint.department_id).map((d) => (
@@ -399,7 +399,7 @@ export default function SupervisorComplaintDetailPage() {
               onChange={(e) => setTransferReason(e.target.value)}
               placeholder="Reason for transfer..."
               rows={2}
-              className="w-full px-3 py-2 rounded-lg border border-gray-300 text-sm outline-none focus:border-indigo-500 resize-none"
+              className="w-full px-3 py-2 rounded-lg border border-gray-300 text-sm text-gray-900 bg-white outline-none focus:border-indigo-500 resize-none"
             />
             {transferMsg && <p className="text-xs text-purple-600">{transferMsg}</p>}
             <button

@@ -110,7 +110,7 @@ export default function SupervisorQueuePage() {
       <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-4 mb-6">
         <div className="flex flex-wrap items-center gap-3">
           {/* Filters... */}
-          <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)} className="px-3 py-2 rounded-lg border border-gray-300 text-sm">
+          <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)} className="px-3 py-2 rounded-lg border border-gray-300 text-sm text-gray-900 bg-white outline-none focus:border-indigo-500">
             <option value="">All Statuses</option>
             <option value="submitted">Submitted</option>
             <option value="assigned">Assigned</option>
@@ -119,7 +119,7 @@ export default function SupervisorQueuePage() {
             <option value="escalated">Escalated</option>
           </select>
 
-          <select value={urgencyFilter} onChange={(e) => setUrgencyFilter(e.target.value)} className="px-3 py-2 rounded-lg border border-gray-300 text-sm">
+          <select value={urgencyFilter} onChange={(e) => setUrgencyFilter(e.target.value)} className="px-3 py-2 rounded-lg border border-gray-300 text-sm text-gray-900 bg-white outline-none focus:border-indigo-500">
             <option value="">All Urgencies</option>
             <option value="high">High</option>
             <option value="medium">Medium</option>
@@ -129,7 +129,7 @@ export default function SupervisorQueuePage() {
           <select value={`${sortBy}:${sortOrder}`} onChange={(e) => {
               const [field, order] = e.target.value.split(':');
               setSortBy(field); setSortOrder(order);
-            }} className="px-3 py-2 rounded-lg border border-gray-300 text-sm">
+            }} className="px-3 py-2 rounded-lg border border-gray-300 text-sm text-gray-900 bg-white outline-none focus:border-indigo-500">
             <option value="created_at:desc">Newest First</option>
             <option value="created_at:asc">Oldest First</option>
             <option value="sla_deadline:asc">SLA Soonest</option>

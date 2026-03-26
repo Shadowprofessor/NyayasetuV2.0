@@ -46,3 +46,10 @@ export function maskPhone(phone: string): string {
   const masked = '*'.repeat(phone.length - 4);
   return `${masked}${visible}`;
 }
+
+/**
+ * Simple class name merger utility
+ */
+export function cn(...classes: (string | undefined | null | boolean)[]) {
+  return classes.filter(Boolean).join(' ');
+}

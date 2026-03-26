@@ -105,7 +105,7 @@ export default function OfficerQueuePage() {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="px-3 py-2 rounded-lg border border-gray-300 text-sm text-gray-700 outline-none
+            className="px-3 py-2 rounded-lg border border-gray-300 text-sm text-gray-900 bg-white outline-none
               focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
           >
             <option value="">All Statuses</option>
@@ -119,7 +119,7 @@ export default function OfficerQueuePage() {
           <select
             value={urgencyFilter}
             onChange={(e) => setUrgencyFilter(e.target.value)}
-            className="px-3 py-2 rounded-lg border border-gray-300 text-sm text-gray-700 outline-none
+            className="px-3 py-2 rounded-lg border border-gray-300 text-sm text-gray-900 bg-white outline-none
               focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
           >
             <option value="">All Urgencies</option>
@@ -135,7 +135,7 @@ export default function OfficerQueuePage() {
               setSortBy(field);
               setSortOrder(order);
             }}
-            className="px-3 py-2 rounded-lg border border-gray-300 text-sm text-gray-700 outline-none
+            className="px-3 py-2 rounded-lg border border-gray-300 text-sm text-gray-900 bg-white outline-none
               focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
           >
             <option value="created_at:desc">Newest First</option>

@@ -717,7 +717,7 @@ export const SCHEMES_SEED: Omit<Scheme, 'id' | 'created_at'>[] = [
     benefits_hi: "खतरनाक सफाई के दौरान मृत्यु की स्थिति में 10 लाख रुपये तक की अनुग्रह राशि, और मुफ्त चिकित्सा उपचार।",
     apply_url: "https://djb.delhigovt.nic.in/",
     application_link: null,
-    department: "Delhi Jal Board / MCD",
+    department: "Delhi Jal Board / Public Works",
     category: "workers",
     target_groups: ["Sanitation Workers"],
     tags: ["hazardous-work", "sanitation", "insurance", "labor"],

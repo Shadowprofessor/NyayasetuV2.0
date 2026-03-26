@@ -50,29 +50,39 @@ export default function SchemesPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 animate-fadeIn">
-      {/* Header */}
-      <div className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
-        <div className="max-w-6xl mx-auto px-4 py-10">
-          <h1 className="text-3xl font-bold mb-2">{t('schemes.title')}</h1>
-          <p className="text-indigo-200 text-sm">
-            {t('schemes.subtitle')}
-          </p>
+      {/* Hero Header Section */}
+      <section className="relative pt-12 pb-24 bg-gradient-to-br from-[#6366F1] via-[#8B5CF6] to-[#D946EF] overflow-hidden">
+        {/* Subtle Decorative elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-900/20 rounded-full blur-2xl -ml-10 -mb-10"></div>
+        
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">
+              {t('schemes.title', { defaultValue: 'Government Schemes' })}
+            </h1>
+            <p className="text-xl text-white/80 font-medium mb-10 max-w-2xl">
+              {t('schemes.subtitle', { defaultValue: 'Discover and apply for welfare schemes in Delhi' })}
+            </p>
 
-          {/* Search Bar */}
-          <div className="mt-6 relative max-w-2xl">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder={t('schemes.searchPlaceholder')}
-              className="w-full pl-12 pr-4 py-3.5 rounded-xl bg-white/10 backdrop-blur-sm
-                border border-white/20 text-white placeholder-indigo-200
-                outline-none focus:bg-white/20 focus:border-white/40 transition-all"
-            />
+            {/* Glassmorphism Search Bar */}
+            <div className="relative group max-w-2xl">
+              <div className="absolute inset-0 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 transition-all duration-300 group-focus-within:bg-white/20 group-focus-within:border-white/40 ring-1 ring-white/10 shadow-2xl shadow-indigo-900/20"></div>
+              <div className="relative flex items-center h-16">
+                <Search className="ml-5 w-6 h-6 text-white/50" />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder={t('schemes.searchPlaceholder', { defaultValue: 'Search schemes...' })}
+                  className="w-full bg-transparent border-none text-white placeholder-white/50 text-lg px-4 
+                    focus:ring-0 outline-none font-medium"
+                />
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
       <div className="max-w-6xl mx-auto px-4 py-8">
         {/* Category Chips + Recommend Button */}
