@@ -36,8 +36,12 @@ export async function GET(request: NextRequest) {
       .select('id, users(full_name)');
 
     const officerMap = new Map();
-    officers?.forEach(o => officerMap.set(o.id, o.users?.full_name));
-
+    officers?.forEach(o => officerMap.set(
+  o.id, 
+  Array.isArray(o.users) 
+    ? o.users[0]?.full_name 
+    : (o.users as any)?.full_name
+));
     const enriched = complaints.map(c => {
       const deadline = new Date(c.sla_deadline);
       const hoursOverdue = Math.floor((new Date().getTime() - deadline.getTime()) / (1000 * 60 * 60));
