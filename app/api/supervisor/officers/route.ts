@@ -42,7 +42,7 @@ export async function GET(request: NextRequest) {
       return {
         officer_id: o.id,
         officer_name: o.users?.full_name || 'Unknown Officer',
-        //@ts-ignore
+        //@ts-expect-error
         department_name: o.departments?.name || 'N/A',
         assigned_count: totalAssigned,
         resolved_count: resolved,
