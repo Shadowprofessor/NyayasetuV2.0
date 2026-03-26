@@ -41,9 +41,12 @@ export async function GET(request: NextRequest) {
 
       return {
         officer_id: o.id,
-        officer_name: o.users?.full_name || 'Unknown Officer',
-        // @ts-expect-error: Temporary fix for officer API response type mismatch
-        department_name: o.departments?.name || 'N/A',
+        officer_name: Array.isArray(o.users) 
+          ? o.users[0]?.full_name || 'Unknown Officer' 
+          : (o.users as any)?.full_name || 'Unknown Officer',
+        department_name: Array.isArray(o.departments) 
+          ? o.departments[0]?.name || 'N/A' 
+          : (o.departments as any)?.name || 'N/A',
         assigned_count: totalAssigned,
         resolved_count: resolved,
         overdue_count: overdue,
